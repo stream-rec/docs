@@ -1,0 +1,27 @@
+{
+  "name": "Stream-rec_website",
+  "version": "1.0.0",
+  "description": "Stream-rec official website: https://stream-rec.github.io/stream-rec/",
+  "main": "index.js",
+  "repository": "https://github.com/stream-rec/stream-rec",
+  "author": "hua0512",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.5.0",
+    "vue": "^3.5.12"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "search-insights"
+      ]
+    }
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "type": "module"
+}
