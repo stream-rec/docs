@@ -59,6 +59,7 @@ function sidebarGuide() {
       items: [
         {text: "Engines", link: "/engines"},
         {text: "Configuration", link: "/configuration"},
+        {text: "Troubleshooting", link: "/troubleshooting"},
         // { text: "Advanced usage", link: "/advanced-usage" },
         // { text: "FAQ", link: "/faq" },
       ],

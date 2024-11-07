@@ -59,6 +59,7 @@ function sidebarGuide() {
       items: [
         {text: "下载引擎", link: "/zh_CN/engines"},
         {text: "配置", link: "/zh_CN/configuration"},
+        {text: "故障排除", link: "/zh_CN/troubleshooting"},
         // { text: "Advanced usage", link: "/zh_CN/advanced-usage" },
         // { text: "FAQ", link: "/zh_CN/faq" },
       ],
