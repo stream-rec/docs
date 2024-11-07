@@ -25,9 +25,9 @@ Stream-rec 是一个自动录制各种直播平台的工具。
 
 ## 截图
 
-![login.png](zh/login.png)
-![dashboard.png](zh/dashboard.png)
-![streamers.png](zh/streamers.png)
+![login.png](/zh/login.png)
+![dashboard.png](/zh/dashboard.png)
+![streamers.png](/zh/streamers.png)
 
 ## 联系
 

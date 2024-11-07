@@ -1,4 +1,4 @@
-import { defineConfig, SiteConfig } from "vitepress";
+import {defineConfig, SiteConfig} from "vitepress";
 import locales from "./locales";
 
 // https://vitepress.dev/reference/site-config
@@ -6,6 +6,18 @@ export default defineConfig({
   title: "Stream-rec",
   locales: locales.locales,
   lastUpdated: true,
+  ignoreDeadLinks: [
+    // ignore exact url "/playground"
+    '/playground',
+    // ignore all localhost links
+    /^https?:\/\/localhost/,
+    // ignore all links include "/repl/""
+    /\/repl\//,
+    // custom function, ignore all links include "ignore"
+    (url) => {
+      return url.toLowerCase().includes('ignore')
+    }
+  ],
   themeConfig: {
     search: {
       provider: "local",

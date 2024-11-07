@@ -6,7 +6,7 @@ on:
   # Runs on pushes targeting the `main` branch. Change this to `master` if you're
   # using the `master` branch as the default branch.
   push:
-    branches: [main]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -34,10 +34,9 @@ jobs:
           fetch-depth: 0 # Not needed if lastUpdated is not enabled
       - name: Fetch additional docs
         run: |
-          pwd
           git clone --depth 1 https://github.com/stream-rec/stream-rec-frontend.git temp-docs
-          ls -la
           cp -r temp-docs/docs/* docs/public/
+          ls -la docs/public/
           rm -rf temp-docs
       - name: Setup Node
         uses: actions/setup-node@v4

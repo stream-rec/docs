@@ -125,7 +125,7 @@ environment:
 docker compose up -d && docker compose logs -f
 ```
 
-稍等片刻，等待加载完成你就可以在 [http://localhost:15275](http://localhost:15275) 访问 Web 界面并开始配置工具（参见 [配置](Configuration)）。
+稍等片刻，等待加载完成你就可以在 [http://localhost:15275](http://localhost:15275) 访问 Web 界面并开始配置工具（参见 [配置](configuration)）。
 
 > [!TIP]
 > 您可以通过按 `Ctrl + C` 来退出日志。您可以通过运行 `docker compose logs -f` 来重新连接到日志。

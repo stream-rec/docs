@@ -24,9 +24,9 @@ It's powered by [Kotlin](https://kotlinlang.org/), [Ktor](https://ktor.io/), and
 
 ## Screenshots
 
-![login.png](en/login.png)
-![dashboard.png](en/dashboard.png)
-![streamers.png](en/streamers.png)
+![login.png](/en/login.png)
+![dashboard.png](/en/dashboard.png)
+![streamers.png](/en/streamers.png)
 
 ## Contact
 
