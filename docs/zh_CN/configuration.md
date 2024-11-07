@@ -8,7 +8,7 @@
 
 默认用户名和密码均为`stream-rec`。但是，如果设置了`LOGIN_SECRET`环境变量，则**初始**密码将设置为该值。
 
-![login.png](zh/login.png)
+![login.png](/zh/login.png)
 
 ## 2. 全局设置
 
@@ -24,7 +24,7 @@
 > - 如果要禁用分段下载，请将`最大分段时长`、`最大分段大小` 设置为 0。
 > - 请详细阅读每个设置的注释以获取更多信息。如果您有任何问题，也可以发起讨论。
 
-![global_settings.png](zh/settings.png)
+![global_settings.png](/zh/settings.png)
 
 ## 3. 全局平台设置
 
@@ -34,7 +34,7 @@
 
 如果你不确定该怎么做，请保持默认设置。
 
-![platform_settings.png](zh/platform_settings.png)
+![platform_settings.png](/zh/platform_settings.png)
 
 > [!NOTE]
 >
@@ -44,7 +44,7 @@
 
 单击左侧导航栏中的`主播`（第二个图标）以访问主播列表页面。
 
-![streamers.png](zh/streamers.png)
+![streamers.png](/zh/streamers.png)
 
 单击`添加主播`按钮以添加新的主播。
 
@@ -88,7 +88,7 @@
 
 在控制面板中，您可以查看哪些录制正在运行或已禁用。您还可以查看下载速度和录制持续时间。
 
-![dashboard.png](zh/dashboard.png)
+![dashboard.png](/zh/dashboard.png)
 
 > [!TIP]
 >

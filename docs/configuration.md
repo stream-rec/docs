@@ -9,7 +9,7 @@ After starting the tool, you will be redirected to the login page. Enter your cr
 The default credentials are set to `stream-rec` for both the username and password. But if you set the `LOGIN_SECRET` environment variable, the
 first time password will be set to that value.
 
-![login.png](en/login.png)
+![login.png](/en/login.png)
 
 ## 2. General settings
 
@@ -25,7 +25,7 @@ The difference between each engine can be found [here](./engines).
 > - If you want to disable parted downloads, set both `Maximum parted download duration`, `Maximum parted download size` to 0.
 > - Read the comments of each setting for more information. You can also open a discussion if you have any questions.
 
-![global_settings.png](en/settings.png)
+![global_settings.png](/en/settings.png)
 
 ## 3. Platform settings
 
@@ -35,7 +35,7 @@ Here you can configure each platform's settings, please read the comments of eac
 
 Leave it as default if you are not sure what to do.
 
-![platform_settings.png](en/platform_settings.png)
+![platform_settings.png](/en/platform_settings.png)
 
 > [!NOTE]
 >
@@ -45,7 +45,7 @@ Leave it as default if you are not sure what to do.
 
 Navigate to the streamers list page by clicking on `Streamers` (the second icon) in the left navigation bar.
 
-![streamers.png](en/streamers.png)
+![streamers.png](/en/streamers.png)
 
 Click on the `Add streamer` button to add a new streamer.
 
@@ -91,7 +91,7 @@ streamers with the same configuration.
 
 Navigate to the dashboard page by clicking on the dashboard icon in the left navigation bar.
 
-![dashboard.png](en/dashboard.png)
+![dashboard.png](/en/dashboard.png)
 
 Here you can see the status of the recordings, whether they are running or disabled. You can also see the download speed and the duration of the
 recording.
