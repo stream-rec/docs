@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Stream-rec"
-  text: "全自动录播, 多平台支持"
+  text: "全自动录播工具"
   tagline: "多平台流媒体录制"
   image:
     src: /stream-rec.svg
@@ -14,10 +14,10 @@ hero:
   actions:
     - theme: brand
       text: 开始使用
-      link: /what-is-stream-rec
+      link: /zh_CN/what-is-stream-rec
     - theme: alt
       text: 开发者文档
-      link: /api-guide
+      link: /zh_CN/api-guide
 
 features:
   - title: 多平台支持
@@ -25,7 +25,7 @@ features:
   - title: 前后端分离
     details: 前端使用 React + Nextjs, 后端使用 Kotlin + Ktor
   - title: 定时录制
-    details: 允许用户设置录制时间
+    details: 允许用户设置录制时间段，减少平台API调用次数，提高录制效率
   - title: 容器化部署
-    details: Stream-rec 可以作为 Docker 容器部署, 方便设置和管理
+    details: Stream-rec 首推 Docker 部署，方便快捷。
 ---
