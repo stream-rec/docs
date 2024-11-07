@@ -3,7 +3,7 @@ import locales from "./locales";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: "/stream-rec-pages/",
+  base: "/docs/",
   title: "Stream-rec",
   locales: locales.locales,
   lastUpdated: true,
