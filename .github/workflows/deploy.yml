@@ -34,7 +34,9 @@ jobs:
           fetch-depth: 0 # Not needed if lastUpdated is not enabled
       - name: Fetch additional docs
         run: |
+          pwd
           git clone --depth 1 https://github.com/stream-rec/stream-rec-frontend.git temp-docs
+          ls -la
           cp -r temp-docs/docs/* docs/public/
           rm -rf temp-docs
       - name: Setup Node
