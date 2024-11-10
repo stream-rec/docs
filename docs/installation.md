@@ -182,6 +182,6 @@ java -DDB_PATH=/path/to/your/db -DLOG_LEVEL=DEBUG -DJWT_SECRET=SECRET -DLOGIN_SE
 
 Frontend is used to configure the tool, it's a simple web interface built with React.
 
-Navigate to [frontend](https://github.com/stream-rec/stream-rec-front) repository and follow the build instructions.
+Navigate to [frontend](https://github.com/stream-rec/stream-rec-frontend) repository and follow the build instructions.
 
 After that, you can start configuring the tool by accessing the web interface at [http://localhost:15275](http://localhost:15275). Take a look at the [Configuration](configuration) page for more information.

@@ -190,6 +190,6 @@ java -DDB_PATH=/path/to/your/db -DLOG_LEVEL=DEBUG -DJWT_SECRET=SECRET -DLOGIN_SE
 
 ### 2.3 构建前端服务
 
-访问 [stream-rec-frontend](https://github.com/stream-rec/stream-rec-front) 仓库并按照说明构建前端服务。
+访问 [stream-rec-frontend](https://github.com/stream-rec/stream-rec-frontend) 仓库并按照说明构建前端服务。
 
 完成后可以在 [http://localhost:15275](http://localhost:15275) 访问 Web 界面并开始配置工具（参见 [配置](configuration)）。
