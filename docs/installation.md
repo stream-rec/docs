@@ -11,7 +11,7 @@ Two methods are available to install the tool:
 
 Create a `docker-compose.yml` which contains the following content:
 
-<<< @/docker-compose.yml{highlightLines}
+<<< @/docker-compose.yml
 
 #### Backend environment variables
 
@@ -22,6 +22,8 @@ Create a `docker-compose.yml` which contains the following content:
 | DB_PATH       | Indicates the file system path to the database file or directory, which is used during the initialization of the database connection. Should be a folder of container path.                                  |
 | DOWNLOAD_PATH | Specifies the directory path where downloaded streams or files are saved. This path is set during the application's initialization process. Should be a folder of container path.                            |
 | LOGIN_SECRET  | A temporary password or secret used for the initial login or setup of a user account during the application's initialization phase. This option has no effect after the initialization for security reasons. |
+| PGID          | Group ID                                                                                                                                                                                                     |
+| PUID          | User ID                                                                                                                                                                                                      |
 
 #### Proxy settings
 

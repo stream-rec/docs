@@ -11,7 +11,7 @@ Stream-rec 可以通过 Docker Compose 或者从源代码构建来安装。
 
 请选择在一个无中文符号路径下创建一个 `docker-compose.yml` 文件， 并将以下内容复制到文件中：
 
-<<< @/zh_CN/docker-compose.yml{highlightLines}
+<<< @/zh_CN/docker-compose.yml
 
 #### 后端环境变量
 
@@ -22,7 +22,8 @@ Stream-rec 可以通过 Docker Compose 或者从源代码构建来安装。
 | DB_PATH       | 指定数据库文件或目录的文件系统路径，用于数据库连接的初始化。应该是容器内的文件夹路径。         |
 | DOWNLOAD_PATH | 指定下载的流媒体或文件保存的目录路径。在应用程序初始化过程中设置。应该是容器内的文件夹路径。   |
 | LOGIN_SECRET  | 用于应用程序初始化阶段的初始登录或用户账户设置的临时密码。出于安全考虑，初始化后此选项无效。   |
-
+| PGID          | 用户组ID                                                                                       |
+| PUID          | 用户ID                                                                                         |
 
 #### 1.1.1 代理设置
 
