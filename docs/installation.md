@@ -11,76 +11,19 @@ Two methods are available to install the tool:
 
 Create a `docker-compose.yml` which contains the following content:
 
-```yaml
-networks:
-  stream-rec:
+<<< @/docker-compose.yml{highlightLines}
 
-services:
-  # Backend service
-  backend:
-    #   Uses the latest main branch image
-    image: streamrec/stream-rec:latest
-    #    container name, you can change it to any name you like
-    container_name: stream-rec
-    restart: unless-stopped
-    #    port mapping, you can change the port to any port you like
-    ports:
-      - "12555:12555"
-    networks:
-      - stream-rec
-    volumes:
-      # Host machine path binding to container path, storage path mapping
-      - "./downloads:/opt/records" // [!code highlight]
-      # Rclone configuration file path binding
-      - "./rclone:/root/.config/rclone" // [!code highlight]
-    environment:
-      # Timezone, by default is Europe/Paris.
-      - TZ=Europe/Paris
-      # Proxy settings, if you are in mainland China, you may need to set up a proxy.
-      # Comment it out if you don't need a proxy. Only http proxy is supported.
-      #- HTTP_PROXY=http://192.168.110.10:7890
-      # Log level, by default is info. `DEBUG` logs are useful for debugging, but they can be very verbose.
-      - LOG_LEVEL=INFO
-      # CONTAINER database path
-      - DB_PATH=/opt/records
-      # CONTAINER download path for the first initialization
-      - DOWNLOAD_PATH=/opt/records
-      # FIRST USE LOGIN secret, YOU CAN CHANGE IT TO ANY STRING YOU LIKE
-      - LOGIN_SECRET=123 // [!code highlight]
-  # Frontend service
-  frontend:
-    #   Uses the latest main branch image
-    image: streamrec/stream-rec-front:latest
-    container_name: stream-rec-frontend
-    restart: unless-stopped
-    #   port mapping, you can change the port to any port you like
-    ports:
-      - "15275:15275"
-    networks:
-      - stream-rec
-    depends_on:
-      - backend
-    environment:
-      #    timezone, by default is Europe/Paris.
-      - TZ=Europe/Paris
-      # Backend api url, made up of the container name and port.
-      # DO NOT CHANGE IT if you don't know what you are doing.
-      # Make sure the port is the same as the backend port. // [!code warning]
-      - API_URL=http://backend:12555/api
-      # Secret for next-auth, YOU CAN CHANGE IT TO ANY STRING YOU LIKE
-      - NEXTAUTH_SECRET=6chtw8GBN3BO // [!code highlight]
-      # CLIENT url, used by next-auth to redirect to login page.
-      # Should be the address which the user types in the browser to access the frontend.
-      # Make sure the port is the same as the frontend port. // [!code warning]
-      - NEXTAUTH_URL=http://localhost:15275/
-      # WS_API_URL, CLIENT websocket url. Used for live status updates.
-      # This should use the ip address of the deployed server.
-      # Below is an example of using localhost, you can change it to the ip address of the deployed server.
-      # For example, if backend is deployed on the server ip address 12.12.12.12, with port 12555, then you should change it to ws://12.12.12.12:12555/live/update
-      - WS_API_URL=ws://localhost:12555/live/update
-```
+#### Backend environment variables
 
-#### 1.1.1 Proxy settings
+| Environment   | Description                                                                                                                                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| LOG_LEVEL     | Determines the verbosity of logging output for the backend. Common levels include debug, info, warn, and error, which control the detail and amount of log information generated.                            |
+| HTTP_PROXY    | Specifies the URL of the proxy server that the application should use for outgoing HTTP requests. This can be used to route requests through a specific network path or to bypass network restrictions.      |
+| DB_PATH       | Indicates the file system path to the database file or directory, which is used during the initialization of the database connection. Should be a folder of container path.                                  |
+| DOWNLOAD_PATH | Specifies the directory path where downloaded streams or files are saved. This path is set during the application's initialization process. Should be a folder of container path.                            |
+| LOGIN_SECRET  | A temporary password or secret used for the initial login or setup of a user account during the application's initialization phase. This option has no effect after the initialization for security reasons. |
+
+#### Proxy settings
 
 If you are using a proxy, you can set the `HTTP_PROXY` environment variable in the `backend` service.
 
@@ -90,7 +33,7 @@ For proxies deployed on the local machine, you can use the following settings:
 
 ```yaml
 environment:
-  - HTTP_PROXY=http://host.docker.internal:port/
+  - HTTP_PROXY=http://host.docker.internal:<port>/
 ```
 
 - Linux users:
@@ -100,12 +43,22 @@ environment:
 ip addr show docker0
 ```
 
-Then, replace `<host_ip>` with the IP address:
+Then, replace `<host_ip>` with the IP address and `<port>` with the port number.
 
 ```yaml
 environment:
   - HTTP_PROXY=http://<host_ip>:port/
 ```
+
+#### Frontend environment variables
+
+| Environment          | Description                                                                                                                              |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| NEXTAUTH_URL         | Specifies the base URL of the application, typically the root URL of the deployed site, used for authentication callbacks and redirects. |
+| NEXT_PUBLIC_BASE_URL | Defines the public base URL of the application, used as the base path for frontend and API requests.                                     |
+| NEXTAUTH_SECRET      | A secret key used to encrypt sessions and authentication tokens, ensuring user data security.                                            |
+| API_URL              | The backend connection URL, used to connect to and access the backend service.                                                           |
+| WS_API_URL           | The backend websocket connection URL, used to retrieve real time event updates.                                                          |
 
 ### 1.2 Running the Docker compose
 

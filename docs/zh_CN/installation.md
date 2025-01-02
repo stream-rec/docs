@@ -11,85 +11,18 @@ Stream-rec 可以通过 Docker Compose 或者从源代码构建来安装。
 
 请选择在一个无中文符号路径下创建一个 `docker-compose.yml` 文件， 并将以下内容复制到文件中：
 
-```yaml
-networks:
-  stream-rec:
+<<< @/zh_CN/docker-compose.yml{highlightLines}
 
-services:
-  # 后端服务
-  backend:
-    # 使用最新的主分支镜像
-    # 如果您想使用特定版本，请更改为streamrec/stream-rec:version
-    # 您可以在https://hub.docker.com/r/streamrec/stream-rec/tags中找到所有可用的版本
-    # latest是最新稳定内测版本，dev 是最新开发版。
-    image: streamrec/stream-rec:latest
-    # 容器名称，您可以将其更改为任何您喜欢的名称
-    container_name: stream-rec
-    restart: unless-stopped
-    #  端口映射，您可以将端口更改为任何您喜欢的端口，默认为12555
-    #  请注意，如果您更改了端口，请确保在前端服务中更改相关配置。
-    ports:
-      - "12555:12555"
-    networks:
-      - stream-rec
-    volumes:
-      # 将主机机器路径绑定到容器路径，存储路径映射
-      # 下载路径，默认为当前运行目录下的downloads文件夹
-      - "./downloads:/opt/records" // [!code highlight]
-      # Rclone 配置文件路径绑定
-      - "./rclone:/root/.config/rclone" // [!code highlight]
-    # 环境变量
-    environment:
-      # 时区，默认为 Europe/Paris,您可以将其更改为任何您喜欢的时区，请确保前端服务中的时区与此处一致。
-      - TZ=Asia/Shanghai
-      # 代理设置，如果您在中国大陆，您可能需要设置代理。
-      # 不需要代理的用户请将其注释掉。 只支持http代理。
-      #- HTTP_PROXY=http://192.168.110.10:7890
-      # 日志级别，默认为info。调试日志对于调试非常有用，但可能非常冗长。 遇到问题时，您可以将其更改为debug。
-      - LOG_LEVEL=INFO
-      # 容器数据库路径
-      - DB_PATH=/opt/records
-      # 容器第一次初始化下载路径
-      - DOWNLOAD_PATH=/opt/records
-      # 初始化登录密钥，您可以将其更改为任何您喜欢的字符串, 用于登录
-      # 请注意，该密钥只有第一次运行时有效，后续更改不会生效
-      - LOGIN_SECRET=123 // [!code highlight]
+#### 后端环境变量
 
-  # 前端服务
-  frontend:
-    # 使用最新的主分支镜像，请确保与后端服务tag一致
-    # 如果您想使用特定版本，请更改为streamrec/stream-rec-front:version
-    # 您可以在https://hub.docker.com/r/streamrec/stream-rec-front/tags 中找到所有可用的版本
-    # latest是最新稳定内测版本，dev 是最新开发版。
-    image: streamrec/stream-rec-front:latest
-    # 容器名称，您可以将其更改为任何您喜欢的名称
-    container_name: stream-rec-frontend
-    restart: unless-stopped
-    #  端口映射，您可以将端口更改为任何您喜欢的端口，默认为15275
-    ports:
-      - "15275:15275"
-    networks:
-      - stream-rec
-    depends_on:
-      - backend
-    # 环境变量
-    environment:
-      # 时区，默认为 Europe/Paris,您可以将其更改为任何您喜欢的时区。
-      - TZ=Asia/Shanghai
-      # 后端api url，由容器名称和端口组成。 如果您不知道自己在做什么，请不要更改它。
-      - API_URL=http://backend:12555/api
-      # 加密密钥，用于next-auth，您可以将其更改为任何您喜欢的字符串
-      - NEXTAUTH_SECRET=6chtw8GBN3BO // [!code highlight]
-      # 客户端访问url。 用于next-auth重定向登录页面。
-      # 这应该使用部署服务器的前端地址。
-      # 确保端口与前端端口相同。
-      - NEXTAUTH_URL=http://localhost:15275/
-      # WS_API_URL，客户端websocket url。 用于实时状态更新。
-      # 这应该使用部署服务器的ip地址。
-      # 例如，以下是使用localhost的示例，您可以将其更改为部署服务器的ip地址。
-      # 例如，如果后端部署在12.12.12.12的服务器上，端口为12555，则应将其更改为 ws://12.12.12.12:12555/live/update
-      - WS_API_URL=ws://localhost:12555/live/update
-```
+| 环境变量      | 描述                                                                                           |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| LOG_LEVEL     | 设置后端日志输出的详细程度。常见级别包括 debug、info、warn 和 error，用于控制生成的日志信息。  |
+| HTTP_PROXY    | 指定应用程序用于传出 HTTP 请求的代理服务器 URL。可用于通过特定网络路径路由请求或绕过网络限制。 |
+| DB_PATH       | 指定数据库文件或目录的文件系统路径，用于数据库连接的初始化。应该是容器内的文件夹路径。         |
+| DOWNLOAD_PATH | 指定下载的流媒体或文件保存的目录路径。在应用程序初始化过程中设置。应该是容器内的文件夹路径。   |
+| LOGIN_SECRET  | 用于应用程序初始化阶段的初始登录或用户账户设置的临时密码。出于安全考虑，初始化后此选项无效。   |
+
 
 #### 1.1.1 代理设置
 
@@ -101,7 +34,7 @@ services:
 
 ```yaml
 environment:
-  - HTTP_PROXY=http://host.docker.internal:port/
+  - HTTP_PROXY=http://host.docker.internal:<port>/
 ```
 
 - Linux 用户： 使用以下命令的输出来获取主机 IP 地址：
@@ -110,12 +43,23 @@ environment:
 ip addr show docker0
 ```
 
-然后，将 `<host_ip>` 替换为 IP 地址：
+然后，将 `<host_ip>` 替换为 IP 地址，将 `<port>` 替换为端口号。
 
 ```yaml
 environment:
   - HTTP_PROXY=http://<host_ip>:port/
 ```
+
+#### 前端环境变量
+
+| 环境变量             | 描述                                                                       |
+| -------------------- | -------------------------------------------------------------------------- |
+| NEXTAUTH_URL         | 指定应用程序的基础 URL，通常是部署站点的根 URL，用于身份验证回调和重定向。 |
+| NEXT_PUBLIC_BASE_URL | 定义应用程序的公共基础 URL，用作前端和 API 请求的基本路径。                |
+| NEXTAUTH_SECRET      | 用于加密会话和身份验证令牌的密钥，确保用户数据安全。                       |
+| API_URL              | 后端连接 URL，用于连接和访问后端服务。                                     |
+| WS_API_URL           | 后端 websocket 连接 URL，用于获取实时事件更新。                            |
+
 
 ### 1.2 运行 Docker compose
 
