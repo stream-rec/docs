@@ -69,11 +69,13 @@ services:
       # 后端api url，由容器名称和端口组成。 如果您不知道自己在做什么，请不要更改它。
       - API_URL=http://backend:12555/api
       # 加密密钥，用于next-auth，您可以将其更改为任何您喜欢的字符串
-      - NEXTAUTH_SECRET=6chtw8GBN3BO // [!code highlight]
-      # 客户端访问url。 用于next-auth重定向登录页面。
-      # 这应该使用部署服务器的前端地址。
-      # 确保端口与前端端口相同。
-      - NEXTAUTH_URL=http://localhost:15275/
+      - AUTH_SECRET=6chtw8GBN3BO // [!code highlight]
+      # 是否存在反代，列如NGINX。
+      # - AUTH_TRUST_HOST=true
+      # 域名基础URL。 用于next-auth重定向登录页面。
+      # - NEXT_PUBLIC_BASE_URL=https://abc.xyz
+      # 域名自定义路径，无需求请不要填写。
+      # - NEXT_PUBLIC_BASE_PATH=/webui
       # WS_API_URL，客户端websocket url。 用于实时状态更新。
       # 这应该使用部署服务器的ip地址。
       # 例如，以下是使用localhost的示例，您可以将其更改为部署服务器的ip地址。

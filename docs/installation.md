@@ -54,13 +54,15 @@ environment:
 
 #### Frontend environment variables
 
-| Environment          | Description                                                                                                                              |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| NEXTAUTH_URL         | Specifies the base URL of the application, typically the root URL of the deployed site, used for authentication callbacks and redirects. |
-| NEXT_PUBLIC_BASE_URL | Defines the public base URL of the application, used as the base path for frontend and API requests.                                     |
-| NEXTAUTH_SECRET      | A secret key used to encrypt sessions and authentication tokens, ensuring user data security.                                            |
-| API_URL              | The backend connection URL, used to connect to and access the backend service.                                                           |
-| WS_API_URL           | The backend websocket connection URL, used to retrieve real time event updates.                                                          |
+| Environment           | Description                                                                                                                              |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| AUTH_URL              | Specifies the base URL of the application, typically the root URL of the deployed site, used for authentication callbacks and redirects. |
+| AUTH_SECRET           | A secret key used to encrypt sessions and authentication tokens, ensuring user data security.                                            |
+| AUTH_TRUST_HOST       | Whether there is a reverse proxy, such as NGINX.                                                                                         |
+| NEXT_PUBLIC_BASE_URL  | Defines the public base URL of the application, used as the base path for frontend and API requests.                                     |
+| NEXT_PUBLIC_BASE_PATH | Defines the public base path of the application, used as the base path for frontend and API requests.                                    |
+| API_URL               | The backend connection URL, used to connect to and access the backend service.                                                           |
+| WS_API_URL            | The backend websocket connection URL, used to retrieve real time event updates.                                                          |
 
 ### 1.2 Running the Docker compose
 
