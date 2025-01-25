@@ -36,7 +36,7 @@ services:
       - PGID=1000
       # User ID
       - PUID=1000
-      
+
   # Frontend service
   frontend:
     #   Uses the latest main branch image
@@ -67,8 +67,8 @@ services:
       # - NEXT_PUBLIC_BASE_URL=https://abc.xyz
       # Domain custom path, no need to fill if not required.
       # - NEXT_PUBLIC_BASE_PATH=/webui
-      # Whether there is a reverse proxy, such as NGINX.
-      # - AUTH_TRUST_HOST=true
+      # Whether there is a reverse proxy, such as NGINX. It is recommended to turn it on, NEXT_AUTH currently has a bug.
+      - AUTH_TRUST_HOST=true
       # WS_API_URL, CLIENT websocket url. Used for live status updates.
       # This should use the ip address of the deployed server.
       # Below is an example of using localhost, you can change it to the ip address of the deployed server.

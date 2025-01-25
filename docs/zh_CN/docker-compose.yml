@@ -70,8 +70,8 @@ services:
       - API_URL=http://backend:12555/api
       # 加密密钥，用于next-auth，您可以将其更改为任何您喜欢的字符串
       - AUTH_SECRET=6chtw8GBN3BO // [!code highlight]
-      # 是否存在反代，列如NGINX。
-      # - AUTH_TRUST_HOST=true
+      # 是否存在反代，列如NGINX。建议打开，NEXT_AUTH暂时有bug
+      - AUTH_TRUST_HOST=true
       # 域名基础URL。 用于next-auth重定向登录页面。
       # - NEXT_PUBLIC_BASE_URL=https://abc.xyz
       # 域名自定义路径，无需求请不要填写。
