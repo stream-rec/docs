@@ -4,7 +4,7 @@
 
 |  平台   | 录制  | 弹幕  |                                    链接格式                                    |  首选下载引擎  |
 | :-----: | :---: | :---: | :----------------------------------------------------------------------------: | :------------: |
-|  抖音   |   ✅   |   ✅   |                     `https://www.live.douyin.com/{抖音id}`                     | Kotlin, FFmpeg |
+|  抖音   |   ✅   |   ✅   |                     `https://live.douyin.com/{抖音id}`                     | Kotlin, FFmpeg |
 |  斗鱼   |   ✅   |   ✅   |                        `https://www.douyu.com/{直播间}`                        | Kotlin, FFmpeg |
 |  虎牙   |   ✅   |   ✅   |                        `https://www.huya.com/{直播间}`                         | Kotlin, FFmpeg |
 | PandaTV |   ✅   |   ✅   |                `https://www.pandalive.co.kr/live/play/{直播间}`                |   Streamlink   |

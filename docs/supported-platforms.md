@@ -4,7 +4,7 @@ This document lists the platforms that are supported by Stream-rec.
 
 | Platform | Recording | Danmu |                                Url format                                 | Preferred Download Engine |
 | :------: | :-------: | :---: | :-----------------------------------------------------------------------: | :-----------------------: |
-|  Douyin  |     ✅     |   ✅   |                 `https://www.live.douyin.com/{douyinId}`                  |      Kotlin, FFmpeg       |
+|  Douyin  |     ✅     |   ✅   |                 `https://live.douyin.com/{douyinId}`                  |      Kotlin, FFmpeg       |
 |  Douyu   |     ✅     |   ✅   |                      `https://www.douyu.com/{room}`                       |      Kotlin, FFmpeg       |
 |   Huya   |     ✅     |   ✅   |                       `https://www.huya.com/{room}`                       |      Kotlin, FFmpeg       |
 | PandaTV  |     ✅     |   ✅   |              `https://www.pandalive.co.kr/live/play/{room}`               |        Streamlink         |
