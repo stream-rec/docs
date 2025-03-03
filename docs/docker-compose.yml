@@ -30,8 +30,6 @@ services:
       - DB_PATH=/opt/records
       # CONTAINER download path for the first initialization
       - DOWNLOAD_PATH=/opt/records
-      # FIRST USE LOGIN secret, YOU CAN CHANGE IT TO ANY STRING YOU LIKE
-      - LOGIN_SECRET=123 // [!code highlight]
       # Group ID
       - PGID=1000
       # User ID

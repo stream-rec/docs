@@ -37,9 +37,6 @@ services:
       - DB_PATH=/opt/records
       # 容器第一次初始化下载路径
       - DOWNLOAD_PATH=/opt/records
-      # 初始化登录密钥，您可以将其更改为任何您喜欢的字符串, 用于登录
-      # 请注意，该密钥只有第一次运行时有效，后续更改不会生效
-      - LOGIN_SECRET=123 // [!code highlight]
       # 用户组ID
       - PGID=1000
       # 用户ID
