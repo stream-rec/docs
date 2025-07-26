@@ -16,9 +16,9 @@ services:
       - stream-rec
     volumes:
       # Host machine path binding to container path, storage path mapping
-      - "./downloads:/opt/records" // [!code highlight]
+      - "./downloads:/opt/records"
       # Rclone configuration file path binding
-      - "./rclone:/root/.config/rclone" // [!code highlight]
+      - "./rclone:/root/.config/rclone"
     environment:
       # Timezone, by default is Europe/Paris.
       - TZ=Europe/Paris
@@ -56,7 +56,7 @@ services:
       # Make sure the port is the same as the backend port. // [!code warning]
       - API_URL=http://backend:12555/api
       # Secret for next-auth, YOU CAN CHANGE IT TO ANY STRING YOU LIKE
-      - AUTH_SECRET=6chtw8GBN3BO // [!code highlight]
+      - AUTH_SECRET=6chtw8GBN3BO
       # CLIENT url, used by next-auth to redirect to login page.
       # Should be the address which the user types in the browser to access the frontend.
       # Make sure the port is the same as the frontend port. // [!code warning]

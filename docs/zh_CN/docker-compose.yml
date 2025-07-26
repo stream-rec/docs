@@ -21,9 +21,9 @@ services:
     volumes:
       # 将主机机器路径绑定到容器路径，存储路径映射
       # 下载路径，默认为当前运行目录下的downloads文件夹
-      - "./downloads:/opt/records" // [!code highlight]
+      - "./downloads:/opt/records"
       # Rclone 配置文件路径绑定
-      - "./rclone:/root/.config/rclone" // [!code highlight]
+      - "./rclone:/root/.config/rclone"
     # 环境变量
     environment:
       # 时区，默认为 Europe/Paris,您可以将其更改为任何您喜欢的时区，请确保前端服务中的时区与此处一致。
@@ -66,7 +66,7 @@ services:
       # 后端api url，由容器名称和端口组成。 如果您不知道自己在做什么，请不要更改它。
       - API_URL=http://backend:12555/api
       # 加密密钥，用于next-auth，您可以将其更改为任何您喜欢的字符串
-      - AUTH_SECRET=6chtw8GBN3BO // [!code highlight]
+      - AUTH_SECRET=6chtw8GBN3BO
       # 是否存在反代，列如NGINX。建议打开，NEXT_AUTH暂时有bug
       - AUTH_TRUST_HOST=true
       # 域名基础URL。 用于next-auth重定向登录页面。
